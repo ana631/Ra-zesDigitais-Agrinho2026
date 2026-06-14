@@ -1,0 +1,518 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E RESETS
+   ========================================================================== */
+html {
+    font-size: 16px; /* Base para o funcionamento do redimensionamento */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FAF8F5;
+    color: #1A301F;
+    font-size: 1rem; /* Permite que o texto aumente/diminua via JavaScript */
+    transition: background-color 0.3s, color 0.3s, font-size 0.2s;
+}
+
+/* Classe utilitária para esconder elementos via JavaScript */
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   2. BARRA DE ACESSIBILIDADE (RODAPÉ DE CIMA VERDE ESCURO)
+   ========================================================================== */
+.accessibility-bar {
+    background: #1A3E21; /* Verde elegante da primeira página */
+    padding: 12px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accessibility-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.accessibility-buttons button {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #FFFFFF;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.accessibility-buttons button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   3. PÁGINA INICIAL / HERO SECTION (Estilo Raízes Digitais)
+   ========================================================================== */
+.hero-welcome {
+    background: linear-gradient(135deg, #1A3E21 0%, #2A5A32 100%);
+    color: #FFFFFF;
+    padding: 40px 60px 80px 60px;
+    text-align: center;
+}
+
+.hero-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.hero-nav .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.hero-nav .nav-links a {
+    color: #E2E8F0;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+}
+
+.hero-nav .nav-links a:hover {
+    color: #B2E183;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: #C3E6CB;
+    margin-bottom: 35px;
+}
+
+/* Botões principais de Ação estilo pílula */
+.btn-track {
+    background-color: #B2E183;
+    color: #1A301F;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-track:hover {
+    background-color: #9CD26A;
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   4. LEITOR DE CÂMERA (PEQUENO, ARREDONDADO E COM FUNDO VERDE PASTEL)
+   ========================================================================== */
+.container {
+    max-width: 900px;
+    margin: -30px auto 40px auto;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.scanner-card {
+    background: #E2EDE4; /* Fundo verde pastel moderno */
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(26, 48, 31, 0.08);
+    text-align: center;
+    max-width: 420px; /* Cartão compacto */
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.scanner-card h2 {
+    font-family: 'Playfair Display', serif;
+    color: #1A301F;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.instructions {
+    color: #556B59;
+    margin-bottom: 20px;
+    font-size: 0.875rem;
+}
+
+.reader-wrapper {
+    background: #FFFFFF; /* Fundo do leitor interno branco */
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px dashed #2A5A32;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+#reader {
+    width: 100% !important;
+    max-width: 260px; /* Visor interno menor */
+    margin: 0 auto;
+    border: none !important;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+#reader video {
+    border-radius: 14px;
+}
+
+/* CUSTOMIZAÇÃO DOS BOTÕES AUTOMÁTICOS DO ESCANEADOR (ARREDONDADOS E VERDES) */
+#reader button {
+    background: linear-gradient(135deg, #2A5A32 0%, #1A3E21 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 10px 24px !important;
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-radius: 50px !important; /* Totalmente arredondado formato pílula */
+    cursor: pointer !important;
+    margin: 10px auto !important;
+    display: inline-block !important;
+    box-shadow: 0 4px 12px rgba(26, 62, 33, 0.2) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+#reader button:hover {
+    background: linear-gradient(135deg, #346e3d 0%, #22522b 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(26, 62, 33, 0.3) !important;
+}
+
+#reader button:active {
+    transform: translateY(0px) !important;
+}
+
+/* Ajuste fino dos seletores nativos de câmera */
+#reader select {
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+    border: 1px solid #2A5A32 !important;
+    color: #1A301F !important;
+    margin-top: 10px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* ==========================================================================
+   5. SEÇÃO DE RESULTADOS DESIGN DIVIDIDO (MEIO VERDE PASTEL / MEIO BRANCO)
+   ========================================================================== */
+.result-split-screen {
+    display: flex;
+    background: #FFFFFF;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    margin-top: 20px;
+    min-height: 450px;
+}
+
+/* Lado Esquerdo: Verde Pastel Moderno */
+.result-left-panel {
+    flex: 1;
+    background-color: #E2EDE4;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.result-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1A301F;
+    margin-bottom: 25px;
+}
+
+.product-image-block img {
+    max-width: 100%;
+    max-height: 240px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(26, 48, 31, 0.15);
+    object-fit: cover;
+}
+
+/* Lado Direito: Branco Puro com Letras Pretas Nítidas */
+.result-right-panel {
+    flex: 1.2;
+    background: #FFFFFF;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-name-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #111111; /* Preto absoluto */
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E2EDE4;
+    padding-bottom: 12px;
+}
+
+.info-item {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 14px 0;
+    color: #222222; /* Letras Pretas */
+}
+
+.info-item strong {
+    color: #1A3E21; /* Etiquetas em verde escuro corporativo */
+}
+
+/* BOTÃO PREMIUM MODERNO DA SEGUNDA PÁGINA */
+.result-actions {
+    margin-top: 35px;
+    text-align: center;
+    width: 100%;
+}
+
+.result-actions .btn-track-return {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    background: linear-gradient(135deg, #2A5A32 0%, #1A3E21 100%);
+    color: #FFFFFF;
+    
+    border: none;
+    padding: 16px 36px;
+    font-size: 0.938rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 320px;
+    
+    box-shadow: 0 8px 20px rgba(26, 62, 33, 0.2), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.result-actions .btn-track-return:hover {
+    background: linear-gradient(135deg, #346e3d 0%, #22522b 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(26, 62, 33, 0.3), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.result-actions .btn-track-return:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(26, 62, 33, 0.25);
+}
+
+/* Responsividade: Painel em coluna para ecrãs pequenos */
+@media (max-width: 768px) {
+    .result-split-screen {
+        flex-direction: column;
+    }
+    .result-left-panel, .result-right-panel {
+        padding: 30px;
+    }
+}
+
+/* ==========================================================================
+   6. SEÇÃO CONHEÇA QUEM PLANTA
+   ========================================================================== */
+.section-farmers {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    color: #1A301F;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #556B59;
+    margin-bottom: 40px;
+}
+
+.farmers-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.farmer-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.farmer-card:hover {
+    transform: translateY(-5px);
+}
+
+.farmer-card .avatar {
+    font-size: 2.625rem;
+    margin-bottom: 15px;
+}
+
+.farmer-card h4 {
+    margin: 10px 0 5px 0;
+    font-size: 1.125rem;
+    color: #1A301F;
+}
+
+.farmer-card p {
+    color: #777;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* ==========================================================================
+   7. DESIGN DO JOGUINHO DA COLHEITA
+   ========================================================================== */
+.section-game {
+    text-align: center;
+    padding: 40px 20px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    margin-top: 40px;
+}
+
+.game-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#score-board {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #1A3E21;
+}
+
+#game-canvas {
+    width: 100%;
+    height: 350px;
+    background-color: #F0F7F1;
+    border: 2px solid #2A5A32;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    cursor: none; /* Oculta o mouse dentro do jogo */
+}
+
+#game-basket {
+    font-size: 2.375rem;
+    position: absolute;
+    bottom: 10px;
+    left: 180px;
+    width: 40px;
+    height: 40px;
+    user-select: none;
+    transition: left 0.05s ease-out;
+}
+
+.falling-item {
+    font-size: 1.75rem;
+    position: absolute;
+    top: -40px;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   8. RODAPÉ (FOOTER)
+   ========================================================================== */
+.main-footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: #777;
+    font-size: 0.875rem;
+    border-top: 1px solid #EAE5DF;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   9. FILTRO DE ACESSIBILIDADE: ALTO CONTRASTE
+   ========================================================================== */
+body.high-contrast {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+body.high-contrast .hero-welcome,
+body.high-contrast .scanner-card,
+body.high-contrast .result-left-panel {
+    background: #000000 !important;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF !important;
+}
+
+body.high-contrast .result-split-screen,
+body.high-contrast .result-right-panel,
+body.high-contrast .farmer-card,
+body.high-contrast .section-game {
+    background: #111111 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #FFFFFF;
+    box-shadow: none;
+}
+
+body.high-contrast .btn-track,
+body.high-contrast .result-actions .btn-track-return,
+body.high-contrast #reader button,
+body.high-contrast .accessibility-buttons button {
+    background: #FFFF00 !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+    box-shadow: none !important;
+    border: 1px solid #000b00;
+}
+
+body.high-contrast a,
+body.high-contrast .info-item strong,
+body.high-contrast .product-name-title,
+body.high-contrast #score-board {
+    color: #FFFF00 !important;
+}
