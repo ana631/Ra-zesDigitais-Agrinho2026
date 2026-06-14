@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes Digitais - Feira do Agrinho</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="accessibility-bar">
+        <div class="accessibility-buttons">
+            <button id="btn-font-increase" title="Aumentar Fonte">A+</button>
+            <button id="btn-font-decrease" title="Diminuir Fonte">A-</button>
+            <button id="btn-contrast" title="Alternar Alto Contraste">🌓 Alto Contraste</button>
+        </div>
+    </div>
+
+    <section id="welcome-section" class="hero-welcome">
+        <header class="hero-nav">
+            <div class="logo">🌱 Raízes Digitais</div>
+            <nav class="nav-links">
+                <a href="#produtores">Produtores</a>
+                <a href="#jogo-section">Jogar</a>
+            </nav>
+        </header>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Raízes Digitais</h1>
+            <p class="hero-subtitle">Do campo à sua mesa, com transparência</p>
+            <button id="btn-enter-app" class="btn-track">🔍 Rastrear meu alimento</button>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <section id="scanner-section" class="scanner-card hidden">
+            <h2>🎥 Apontar para o QR Code</h2>
+            <p class="instructions">Posicione o código quadrado dentro da área demarcada abaixo.</p>
+            <div class="reader-wrapper">
+                <div id="reader"></div>
+            </div>
+        </section>
+
+        <section id="result-section" class="result-split-screen hidden">
+            <div class="result-left-panel">
+                <h2 class="result-main-title">✅ Alimento Rastreado</h2>
+                <div class="product-image-block">
+                    <img id="prod-foto" src="" alt="Foto do Produto">
+                </div>
+            </div>
+
+            <div class="result-right-panel">
+                <h3 id="prod-nome-produto" class="product-name-title">Nome do Produto</h3>
+                
+                <div class="info-group">
+                    <p class="info-item"><strong>👨‍🌾 Produtor:</strong> <span id="prod-autor">Nome do Produtor</span></p>
+                    <p class="info-item"><strong>📍 Localidade:</strong> <span id="prod-local">Localização</span></p>
+                    <p class="info-item"><strong>🍂 Colheita:</strong> <span id="prod-colheita">Data da Colheita</span></p>
+                    <p class="info-item"><strong>♻️ Práticas Sustentáveis:</strong> <span id="prod-sustentavel">Detalhes...</span></p>
+                </div>
+
+                <div class="result-actions">
+                    <button id="btn-scan-again" class="btn-track-return">🔄 Rastrear Novo Alimento</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="produtores" class="section-farmers">
+            <h2 class="section-title">Conheça Quem Planta</h2>
+            <p class="section-subtitle">Cada alimento tem uma história. Aqui você conhece o rosto por trás da sua refeição.</p>
+            
+            <div class="farmers-grid">
+                <div class="farmer-card">
+                    <div class="avatar">🍉</div>
+                    <h4>Seu Dirceu</h4>
+                    <p>Especialista em Melancias</p>
+                </div>
+                <div class="farmer-card">
+                    <div class="avatar">🍓</div>
+                    <h4>Seu João</h4>
+                    <p>Produtor de Morango</p>
+                </div>
+                <div class="farmer-card">
+                    <div class="avatar">🥬</div>
+                    <h4>Seu Luciano</h4>
+                    <p>Cultivo Hidropônico</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="jogo-section" class="section-game">
+            <h2 class="section-title">🍓 Jogo da Colheita Saudável 🧺</h2>
+            <p class="section-subtitle">Desloque o cursor do mouse para as laterais dentro da área para mover o balde e colher os alimentos orgânicos! Em dispositivos móveis, basta deslizar o dedo na tela.</p>
+            
+            <div class="game-container">
+                <div id="score-board">Pontuação: <span id="score-val">0</span></div>
+                <div id="game-canvas">
+                    <div id="game-basket">🧺</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>Projeto Agrinho 2026 • Candói - Paraná</p>
+    </footer>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>P
